@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> <%= pokemon.name %> </h2>
+    <img src="<%= pokemon.img %>" alt="Pokemon image">
+    <h3> <%= pokemon.type %> </h3>
+    <p>
+        <ul>
+            <li>HP: <%= pokemon.stats.hp %> </li>
+            <li>Attack: <%= pokemon.stats.attack %> </li>
+            <li>Defense: <%= pokemon.stats.defense %> </li>
+        </ul>
+    </p>
+</body>
+</html>
