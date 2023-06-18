@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>POKEDEX - <%= pokemon.name %></title>
+    <%- include("import.ejs") %>
 </head>
 <body>
     <h2> <%= pokemon.name %> </h2>
@@ -16,5 +17,6 @@
             <li>Defense: <%= pokemon.stats.defense %> </li>
         </ul>
     </p>
+    <h3><a href="/pokemon">GO BACK TO POKEDEX</a></h3>
 </body>
 </html>
