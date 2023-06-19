@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>POKEDEX</h1>
-    
+    <a href="/pokemon/new"><button>Add a new Pokemon</button></a>
     <ul>
         <% for(let i = 0; i < pokemons.length; i++){ %>
             <li>Name:<a href="/pokemon/<%= i %>"><%= pokemons[i].name %></a></li>
