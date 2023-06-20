@@ -7,6 +7,9 @@ const PORT = process.env.PORT;
 const methodOverride = require("method-override")
 
 const pokemons = require("./models/pokemon")
+const retrievePokemonData = () => {
+    return []
+}
 
 // MIDDLEWARE
 app.use(morgan("dev"))
@@ -19,7 +22,8 @@ app.use(methodOverride("_method"))
 
 // INDEX - GET - SHOWS ALL POKEMONS
 app.get("/pokemon", (req, res) => {
-    res.render("index.ejs", {pokemons})
+    const updatedPokemons = retrievePokemonData();
+    res.render("index.ejs", {pokemons, updatedPokemons})
 })
 
 // NEW - GET - RENDER FORM TO CREATE A POKEMON
@@ -51,7 +55,8 @@ app.post("/pokemon", (req, res) => {
 app.get("/pokemon/:id/edit", (req, res) => {
     const id = req.params.id
     const pokemon = pokemons[id]
-    res.render("edit.ejs", {pokemon, id})
+    const updatedPokemons = retrievePokemonData();
+    res.render("edit.ejs", {pokemon, id, updatedPokemons})
 })
  
 

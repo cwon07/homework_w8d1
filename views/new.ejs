@@ -15,29 +15,29 @@
             <div class="newpokemon">
                 <h2>ADD A NEW POKEMON</h2>
                 <!-- START FORM -->
-                <form action="/pokemon" method="post">
+                <form action="/pokemon" method="POST">
                     <!-- fieldset for Pokemon info -->
                     <fieldset class="pokemon-info">
                     <!-- legend for Pokemon info -->
                     <legend>POKEMON INFORMATION</legend>
                         <!-- Pokemon's name -->
                         <label>NAME</label>
-                        <input type="text"/>
+                        <input type="text" name="name"/>
                         <!-- Pokemon's type -->
                         <label>TYPE</label>
-                        <input type="text"/>
+                        <input type="text" name="type"/>
                         <!-- Pokemon's HP stat -->
                         <label>HP STAT</label>
-                        <input type="text"/>
+                        <input type="text" name="stats.hp"/>
                         <!-- Pokemon's Attack stat -->
                         <label>ATTACK STAT</label>
-                        <input type="text"/>
+                        <input type="text" name="stats.attack"/>
                         <!-- Pokemon's Defense stat -->
                         <label>DEFENSE STAT</label>
-                        <input type="text"/>
+                        <input type="text" name="stats.defense"/>
                         <!-- Pokemon's image URL -->
                         <label>IMAGE URL</label>
-                        <input type="text"/>
+                        <input type="text" name="image"/>
                     </fieldset>
                     <!-- submit button -->
                     <input type="submit" value="ADD POKEMON"/>
