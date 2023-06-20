@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POKEDEX</title>
-    <%- include("import.ejs") %>
-</head>
-<body>
-    
-    <h2>Add a new Pokemon</h2>
-    <form action="/pokemon/new" method="post">
-        <input type="text" name="name" placeholder="name of Pokemon"/>
-        <input type="image" name="image"/>
-        <input type="text" name="type" placeholder="type of Pokemon"/>
-        <input type="text" name="HP" placeholder="HP of Pokemon"/>
-        <input type="text" name="Attack" placeholder="Attack of Pokemon"/>
-        <input type="text" name="Defense" placeholder="Defense of Pokemon"/>
-        <input type="submit" value="Add Pokemon"/>
-    </form>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>POKEDEX</title>
+        <%- include("import.ejs") %>
+    </head>
+    <body>
+        <!-- =========== CONTAINER =========== -->
+        <div class="container">
+            <!-- sidebar -->
+            <div class="sidebar">
+                <!-- new Pokemon container -->
+            <div class="newpokemon">
+                <h2>ADD A NEW POKEMON</h2>
+                <!-- START FORM -->
+                <form action="/pokemon" method="post">
+                    <!-- fieldset for Pokemon info -->
+                    <fieldset class="pokemon-info">
+                    <!-- legend for Pokemon info -->
+                    <legend>POKEMON INFORMATION</legend>
+                        <!-- Pokemon's name -->
+                        <label>NAME</label>
+                        <input type="text"/>
+                        <!-- Pokemon's type -->
+                        <label>TYPE</label>
+                        <input type="text"/>
+                        <!-- Pokemon's HP stat -->
+                        <label>HP STAT</label>
+                        <input type="text"/>
+                        <!-- Pokemon's Attack stat -->
+                        <label>ATTACK STAT</label>
+                        <input type="text"/>
+                        <!-- Pokemon's Defense stat -->
+                        <label>DEFENSE STAT</label>
+                        <input type="text"/>
+                        <!-- Pokemon's image URL -->
+                        <label>IMAGE URL</label>
+                        <input type="text"/>
+                    </fieldset>
+                    <!-- submit button -->
+                    <input type="submit" value="ADD POKEMON"/>
+                </form>
+            </div>    
+            </div>
+        </div>
+    </body>
 </html>
