@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>POKEDEX</title>
-        <%- include("import.ejs") %>
     </head>
     <body>
         <!-- ============= CONTAINER ============== -->
@@ -13,7 +12,7 @@
             <div class="sidebar">
             <!-- edit container -->
             <div class="edit">
-                <h2>EDIT <%= pokemon.name %></h2>
+                <h2>Edit <%= pokemon.name %></h2>
                 <!-- START FORM -->
                 <form action="/pokemon/<%= id %>?_method=PUT" method="POST">
                     <!-- fieldset for Pokemon info -->
@@ -31,13 +30,13 @@
                             <input type="text" name="type" value="<%= pokemon.type %>"/>
                             <!-- Pokemon's Attack stat-->
                             <label>ATTACK STAT</label>
-                            <input type="text" name="stats.attack" value="<%= pokemon.stats.attack %>"/>
+                            <input type="text" name="attack" value="<%= pokemon.stats.attack %>"/>
                             <!-- Pokemon's HP stat -->
                             <label>HP STAT</label>
-                            <input type="text" name="stats.hp" value="<%= pokemon.stats.hp %>"/>
+                            <input type="text" name="hp" value="<%= pokemon.stats.hp %>"/>
                             <!-- Pokemon's Defense stat -->
                             <label>DEFENSE STAT</label>
-                            <input type="text" name="stats.defense" value="<%=pokemon.stats.defense %>"/>
+                            <input type="text" name="defense" value="<%=pokemon.stats.defense %>"/>
                     </fieldset>
                     <!-- submit button -->
                     <input type="submit" value="EDIT <%= pokemon.name %>"/>
