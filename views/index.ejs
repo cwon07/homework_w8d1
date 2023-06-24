@@ -3,17 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Orbitron:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Orbitron&family=Oswald:wght@300&display=swap" rel="stylesheet">
     <title>POKEDEX</title>
     <%- include("import.ejs") %>
+    <style>
+        body {
+            background-color:rgb(229, 244, 240);
+            background: linear-gradient(to right, white, rgb(229, 244, 240));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        h1 {
+            font-style: font-family: 'Open Sans', sans-serif;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 80px;
+            color: darkgrey;
+            letter-spacing: 3px;    
+        }
+        .add-new {
+            width: 30%;
+            height: 50px;
+            background: rgb(165, 207, 165);
+            box-shadow: 2px 2px lightseagreen;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3em;
+            color: whitesmoke;
+            border: 0px;
+            transition: 0.2s ease-in-out;
+            text-align: center;
+            border-radius: 15px;
+        }
+        a:link {
+            text-decoration: none;
+        }
+        a:visited {
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        a:active {
+            text-decoration: none;
+        }
+        .poke-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: space-between;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .pokemon {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 3px 15px darkslategrey;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .img-container {
+            width: 120px;
+            height: 140px;
+            text-align: center;
+        }
+        .img-container img {
+            margin-top: 20px;
+            max-width: 90%;
+        }
+        .info {
+            margin-top: 20px;
+            font-family: 'Oswald', sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
     <h1>POKEDEX</h1>
-    <a href="/pokemon/new"><button>ADD NEW POKEMON</button></a>
-    <ul>
-        <% for(let i = 0; i < pokemons.length; i++){ %>
-            <li>NAME: <a href="/pokemon/<%= i %>"><%= pokemons[i].name %></a></li>
-            <img src="<%= pokemons[i].img %>" alt="Pokemon image">
+    <div class="add-new">
+        <a href="/pokemon/new">ADD NEW POKEMON</a>
+    </div>
+    <div class="poke-container">    
+        <% for(let i = 0; i < pokemons.length; i++){ %> 
+            <div class="pokemon"> 
+                <div class="img-container"> 
+                    <img src="<%= pokemons[i].img %>" name ="image" alt="Pokemon image">
+                </div>
+                <div class="info">
+                    <a href="/pokemon/<%= i %>"><%= pokemons[i].name %></a>
+                </div>
+            </div>                        
         <% } %>
     </div>
 </body>
