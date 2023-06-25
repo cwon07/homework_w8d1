@@ -3,24 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Orbitron&family=Oswald:wght@300&display=swap" rel="stylesheet">
     <title>POKEDEX - <%= pokemon.name %></title>
+    <style>
+        body {
+            background: #e9e9e9;
+            font-family: helvetica;
+            }
+        h2 {
+            color:darkgreen;
+            font-style: font-family: 'Open Sans', sans-serif;
+            font-family: 'Orbitron', sans-serif;
+            }
+        .container {
+            width: 80vw;
+            height: 70vw;
+            margin: 50px auto;
+            display: flex;
+            border-radius: 10px;
+            box-shadow: 1px 1px 10px #ddd,
+                        -1px -1px 10px #ddd,
+                        1px -1px 10px #ddd,
+                        -1px 1px 10px #ddd;
+            }
+        .sidebar {
+            width: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px 0 0 10px;
+            }    
+        .pokemon-info {
+            width: 50%;
+            background: #f9f9f9;
+            border-radius: 0 10px 10px 0;
+            padding: 15px;
+            box-sizing: border-box;
+            overflow: auto;
+            } 
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            }
+        label {
+            font-family: 'Oswald', 'Sans-Serif';
+            font-weight: 200;
+            color: orangered;
+            display: block;
+            }
+        p {
+            font-family: 'Oswald', 'Sans-Serif';
+            font-weight: 200;
+            color: black;
+            display: block;
+        }     
+        input {
+            width: 50%;
+            margin: 10px 0;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            }
+        .edit-button {
+            width: 50%;
+            margin: 10px 0;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
     <%- include("import.ejs") %>
 </head>
 <body>
-    <h2> <%= pokemon.name %> </h2>
-    <img src="<%= pokemon.img %>" alt="Pokemon image">
-    <h3> <%= pokemon.type %> </h3>
-    <p>
-        <ul>
-            <li>HP: <%= pokemon.stats.hp %> </li>
-            <li>Attack: <%= pokemon.stats.attack %> </li>
-            <li>Defense: <%= pokemon.stats.defense %> </li>
-        </ul>
-    </p>
-    <a href="/pokemon/<%= id %>/edit"><button>Edit</button></a>
-    <form action="/pokemon/<%= id %>?_method=DELETE" method="POST">
-        <input type="submit" value="DELETE" />
-    </form>
-    <h3><a href="/pokemon">GO BACK TO POKEDEX</a></h3>
+    <div class="container">
+        <!-- sidebar -->
+        <div class="sidebar">
+        <img src="<%= pokemon.img %>" name ="img" alt="Pokemon Image"> </div>
+            <!-- pokemon info container -->
+            <div class="pokemon-info">
+            <h2> <%= pokemon.name %> </h2>
+                <!-- fieldset for pokemon info -->
+                <fieldset class="pokeinfo">
+                    <!-- pokemon type -->
+                    <label>TYPE</label>
+                    <p> <%= pokemon.type %></p>
+                    <label>HP STAT</label>
+                    <p> <%= pokemon.stats.hp %></p>
+                    <label>ATTACK STAT</label>
+                    <p><%= pokemon.stats.attack %></p>
+                    <label>DEFENSE STAT</label>
+                    <p><%= pokemon.stats.defense %></p>
+                </fieldset>
+                <!-- fieldset for editing and deleting -->
+                <fieldset class="edit-delete">
+                    <a class="edit-button" href="/pokemon/<%= id %>/edit">EDIT</a>
+                    <form action="/pokemon/<%= id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE" />
+                    </form>
+                </fieldset>
+                <!-- return to index button -->
+                <a href="/pokemon">RETURN TO POKEDEX</a>     
+        </div>       
+    </div>
+</div>
+    
 </body>
 </html>

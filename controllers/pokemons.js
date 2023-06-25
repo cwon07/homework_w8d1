@@ -28,7 +28,7 @@ router.put("/:id", (req, res) => {
     const id = req.params.id
     pokemons[id] = {
         name: req.body.name,
-        img: req.body.image,
+        img: req.body.img,
         type: [
             req.body.type
         ],
@@ -45,7 +45,7 @@ router.put("/:id", (req, res) => {
 router.post("/", (req, res) => {
     let newPokemon = {
         name: req.body.name,
-        img: req.body.image,
+        img: req.body.img,
         type: [
             req.body.type
         ],
