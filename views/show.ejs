@@ -17,7 +17,7 @@
             }
         .container {
             width: 80vw;
-            height: 70vw;
+            height: 40vw;
             margin: 50px auto;
             display: flex;
             border-radius: 10px;
@@ -27,8 +27,9 @@
                         -1px 1px 10px #ddd;
             }
         .sidebar {
-            width: 50%;
-            background-size: cover;
+            width: 50%;    
+            background: url('<%= pokemon.img %>');        
+            background-size: 40vw 40vw;
             background-repeat: no-repeat;
             border-radius: 10px 0 0 10px;
             }    
@@ -43,13 +44,13 @@
         fieldset {
             border: 1px solid #ccc;
             border-radius: 5px;
-            padding: 20px;
+            padding: 10px;
             margin: 20px 0;
             }
         label {
             font-family: 'Oswald', 'Sans-Serif';
-            font-weight: 200;
-            color: orangered;
+            font-weight: 400;
+            color: rgb(35, 52, 146);
             display: block;
             }
         p {
@@ -57,23 +58,12 @@
             font-weight: 200;
             color: black;
             display: block;
-        }     
-        input {
-            width: 50%;
-            margin: 10px 0;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            }
-        .edit-button {
-            width: 50%;
-            margin: 10px 0;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+        }    
+        .edit-delete {
+            display: flex;
+            justify-content: space-evenly;
+        } 
+      
     </style>
     <%- include("import.ejs") %>
 </head>
@@ -81,7 +71,7 @@
     <div class="container">
         <!-- sidebar -->
         <div class="sidebar">
-        <img src="<%= pokemon.img %>" name ="img" alt="Pokemon Image"> </div>
+        </div>
             <!-- pokemon info container -->
             <div class="pokemon-info">
             <h2> <%= pokemon.name %> </h2>
@@ -99,16 +89,18 @@
                 </fieldset>
                 <!-- fieldset for editing and deleting -->
                 <fieldset class="edit-delete">
-                    <a class="edit-button" href="/pokemon/<%= id %>/edit">EDIT</a>
+                    <a class="edit-button" href="/pokemon/<%= id %>/edit">
+                    <input type="submit" value="EDIT"/> </a>
+                    <div class="delete">
                     <form action="/pokemon/<%= id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="DELETE" />
+                    <input type="submit" value="DELETE" /></div>
+                     <!-- return to index button -->
+                    <a class="return" href="/pokemon">
+                    <input type="submit" value="RETURN TO POKEDEX" /></a>
                     </form>
-                </fieldset>
-                <!-- return to index button -->
-                <a href="/pokemon">RETURN TO POKEDEX</a>     
-        </div>       
+                </fieldset>                  
+            </div>       
+        </div>
     </div>
-</div>
-    
 </body>
 </html>
